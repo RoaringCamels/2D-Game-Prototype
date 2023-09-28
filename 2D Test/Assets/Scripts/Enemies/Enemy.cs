@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Enemy
 {
-    EnemyBase _base;
-    int level;
+    public EnemyBase Base {get; set;}
+    public int Level {get; set;}
     public int HP { get; set; }
 
     // Store the moves that the  Enemy knows
@@ -13,15 +13,15 @@ public class Enemy
 
     public Enemy(EnemyBase eBase, int eLevel)
     {
-        _base = eBase;
-        level = eLevel;
-        HP = eBase.MaxHp;
+        Base = eBase;
+        Level = eLevel;
+        HP = MaxHp;
 
-        // Generate and count moves based on level
+        // Generate and count moves based on Level
         // Moves = new List<Move>();
-        // foreach (var move in _base.LearnableMoves)
+        // foreach (var move in Base.LearnableMoves)
         // {
-        //     if (move.level <= level)
+        //     if (move.Level <= Level)
         //         Moves.Add(new Move(move.Base));
         //     if (Moves.Count >= 4)
         //         break;
@@ -31,26 +31,26 @@ public class Enemy
     // Stat Calculatuion (Based from Pokemon)
     public int Attack
     {
-        get { return Mathf.FloorToInt((_base.Attack * level) / 100f) + 5; }
+        get { return Mathf.FloorToInt((Base.Attack * Level) / 100f) + 5; }
     }
     public int Defense
     {
-        get { return Mathf.FloorToInt((_base.Defense * level) / 100f) + 5; }
+        get { return Mathf.FloorToInt((Base.Defense * Level) / 100f) + 5; }
     }
     public int SpAttack
     {
-        get { return Mathf.FloorToInt((_base.SpAttack * level) / 100f) + 5; }
+        get { return Mathf.FloorToInt((Base.SpAttack * Level) / 100f) + 5; }
     }
     public int SpDefense
     {
-        get { return Mathf.FloorToInt((_base.SpDefense * level) / 100f) + 5; }
+        get { return Mathf.FloorToInt((Base.SpDefense * Level) / 100f) + 5; }
     }
     public int Speed
     {
-        get { return Mathf.FloorToInt((_base.Speed * level) / 100f) + 5; }
+        get { return Mathf.FloorToInt((Base.Speed * Level) / 100f) + 5; }
     }
     public int MaxHp
     {
-        get { return Mathf.FloorToInt((_base.Attack * level) / 100f) + 10; }
+        get { return Mathf.FloorToInt((Base.Attack * Level) / 100f) + 10; }
     }
 }
