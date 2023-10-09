@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Saitama Punch
   description: 
-  type: 0
-  power: 170
+  type: 1
+  power: 200
   accuracy: 100
   pp: 1
