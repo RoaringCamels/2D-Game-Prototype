@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BattleUnit : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] EnemyBase _base;
+    [SerializeField] bool isPlayerUnit;
+    [SerializeField] int level;
+ 
+    public Enemy Enemy {get; set; }
+    public void Setup()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Enemy = new Enemy(_base, level);
+        if (isPlayerUnit)
+            GetComponent<Image>().sprite = Enemy.Base.BackSprite;
+        else
+            GetComponent<Image>().sprite = Enemy.Base.FrontSprite;
     }
 }
